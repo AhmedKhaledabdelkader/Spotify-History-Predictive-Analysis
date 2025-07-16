@@ -42,3 +42,6 @@ Matplotlib / Seaborn / Plotly – For EDA and visualizing trends
 Time-Series Analysis – Analyze behavior over hour/day/month
 
 User Behavior Patterns – Identified skip behavior, top tracks, and listening sessions
+
+At the end i deployed the model using flask framework
+
