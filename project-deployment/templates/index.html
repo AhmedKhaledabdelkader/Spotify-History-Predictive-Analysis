@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>🎧 Skip Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+
+    <img src="{{ url_for('static', filename='images/spotify-newfronts-video-inventory-2024.webp') }}" alt="Logo" class="my_image">
+
+<div class="container py-5 bg1">
+
+    <h1 class="text-center mb-4">🎶 Will the User Skip the Track?</h1>
+
+    <form method="POST" class="border border-warning p-4 rounded shadow text-dark">
+        <div class="mb-3 text-white bg-transparent">
+            <label class="text1">Platform</label>
+            <select name="platform" class="form-select bg1 bg-black">
+                
+                <option value="android" class="bg-transparent text-white">Android</option>
+                <option value="ios" class="bg-transparent text-white">iOS</option>
+                <option value="web player" class="bg-transparent text-white">Web Player</option>
+                <option value="cast to device" class="bg-transparent text-white">Casting</option>
+                <option value="windows" class="bg-transparent text-white">Windows</option>
+                <option value="mac" class="bg-transparent text-white">Mac</option>
+                
+            </select>
+        </div>
+        <div class="mb-3"><label class="text1">MS Played</label>
+            <input type="number" name="ms_played" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <div class="mb-3"><label>Reason Start</label>
+            <select name="reason_start" class="form-select text-white bg-black bg1" required>
+                <option value="fwdbtn">fwdbtn</option>
+                <option value="clickrow">clickrow</option>
+                <option value="playbtn">playbtn</option>
+                <option value="backbtn">backbtn</option>
+                <option value="appload">appload</option>
+                <option value="other">other</option>
+            </select>
+        </div>
+
+        <div class="mb-3"><label class="text1">Reason End</label>
+            <select name="reason_end" class="form-select text-white bg-black bg1" required>
+                <option value="trackdone">trackdone</option>
+                <option value="logout">logout</option>
+                <option value="fwdbtn">fwdbtn</option>
+                <option value="unexpected-exit-while-paused">unexpected-exit-while-paused</option>
+                <option value="endplay">endplay</option>
+                <option value="backbtn">backbtn</option>
+                <option value="remote">remote</option>
+                <option value="unexpected-exit">unexpected-exit</option>
+                <option value="unknown">unknown</option>
+                <option value="nextbtn">nextbtn</option>
+                <option value="clickrow">clickrow</option>
+                <option value="reload">reload</option>
+                <option value="appload">appload</option>
+                <option value="popup">popup</option>
+
+
+                
+            </select>
+        </div>
+
+        <div class="mb-3"><label class="text1">Shuffle</label>
+            <select name="shuffle" class="form-select bg-transparent text-white bg-black bg1" required>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+        </div>
+
+        <div class="mb-3"><label class="text1">Year</label>
+            <input type="number" name="ts_year" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <div class="mb-3"><label class="text1">Month</label>
+            <input type="number" name="ts_month" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <div class="mb-3"><label class="text1">Day</label>
+            <input type="number" name="ts_day" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <div class="mb-3"><label class="text1">Day Name</label>
+            <select name="ts_day_name" class="form-select text-white bg-black bg1" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+        </div>
+
+        <div class="mb-3"><label class="text1">Hour</label>
+            <input type="number" name="ts_hour" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <div class="mb-3"><label class="text1">Quarter</label>
+            <input type="number" name="ts_quarter" class="form-control bg-transparent text-white bg1" required>
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+    <div class="alert alert-warning mt-4 text-center">
+        <h4>🎯 Prediction: <strong>{{ 'Skipped' if prediction else 'Not Skipped' }}</strong></h4>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger mt-4 text-center">
+        ⚠️ <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

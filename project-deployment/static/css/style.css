@@ -1,0 +1,51 @@
+
+body {
+    background: linear-gradient(to bottom, black);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.my_image{
+
+width: 100%;
+height: 600px;
+overflow: hidden;
+
+
+
+}
+
+.color1{
+
+    background-color: #000035 ;
+}
+
+.color2{
+
+    background-color:transparent !important ;
+}
+
+select.form-select {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #ccc;
+  }
+  
+.text1{
+
+    color: #49ff33 !important;
+}
+
+.bg1{
+
+    border-color: #49ff33 !important;
+}
+
+
+.select-dropdown {
+    background-color: transparent !important;
+}
+.select-dropdown option {
+    background-color: transparent !important;
+    color: white !important;
+}
